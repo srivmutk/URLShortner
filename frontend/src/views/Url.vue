@@ -6,7 +6,7 @@
 </template>
 <script>
 import axios from "axios"
-//E
+
 export default {
   data (){
     return {
@@ -14,7 +14,7 @@ export default {
     }
   },
   async mounted(){
-    const data = await axios.get(`http://localhost:4000/${this.id}`)
+    const data = await axios.get(`${process.env.VUE_APP_SERVER_URL}` + "/" + `${this.id}`)
         .then(response => {
           (response.data)
           window.location.replace(response.data)
