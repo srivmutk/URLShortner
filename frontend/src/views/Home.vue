@@ -47,7 +47,6 @@ export default {
             this.err = true;
             console.log(error)
           })
-          res.data.data; 
           res.data.headers['Content-Type'];
     }
   }
