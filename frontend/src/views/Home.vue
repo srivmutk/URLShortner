@@ -6,11 +6,11 @@
       <input @change="clean" v-model="url" placeholder="https://sysnomid.com">
       <input type="submit" label="Shorten!">
     </form>
-    <div v-if=displaySlug class="background">
+    <div v-if=displaySlug class="back">
       Success!
       <a :href="slug"> https://6nmd.us/{{slug}}/ </a>
     </div>
-    <div v-if=err class="background-red">
+    <div v-if=err class="back">
       Enter a valid URL
     </div>
     <p> Created by Sysnomid, <a href="https://sysnomid.com"> https://sysnomid.com </a></p>
@@ -46,8 +46,7 @@ export default {
           .catch(error => {
             this.err = true;
             console.log(error)
-          })
-          res.data.headers['Content-Type'];
+          });
     }
   }
 
@@ -55,13 +54,13 @@ export default {
 </script>
 
 <style global>
-.background {
+.back {
   background-color: #020b59;
   margin: 5%;
   padding: 5%;
   border-radius: 10px;
 }
-.background-red {
+.back-red {
   background-color: #590202;
   margin: 5%;
   padding: 5%;
