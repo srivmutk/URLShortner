@@ -6,7 +6,7 @@
 </template>
 <script>
 import axios from "axios"
-
+//E
 export default {
   data (){
     return {

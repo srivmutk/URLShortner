@@ -1,3 +1,4 @@
+
 <template>
   <div class="home">
     <h1 class="green name">6nmd.us</h1>
@@ -19,7 +20,7 @@
 
 <script>
 import axios from "axios"
-
+//E
 export default {
   name: 'Home',
   data (){
