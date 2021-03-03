@@ -15,13 +15,13 @@ dotenv.config();
     app.use(express.json());
     app.use(express.urlencoded({ extended: true })); 
 
-    // app.use(function(_req, res, next) {
-    //     res.header("Access-Control-Allow-Origin", "6nmd.us");
-    //     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-    //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    //     res.header('Access-Control-Allow-Headers', 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type')        
-    //     next();
-    //   });
+    app.use(function(_req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.header('Access-Control-Allow-Headers', 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type')        
+        next();
+      });
       
     app.get("/", (_req, res) => {
         res.send("URL SHORTENER API")
