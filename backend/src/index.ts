@@ -4,7 +4,6 @@ import UrlShortenerData from "./entity/UrlShortenerData";
 import express from "express";
 import {nanoid} from 'nanoid';
 import {URL} from "url";
-import cors from 'cors';
 
 (async () => {
     await createConnection()
@@ -12,7 +11,6 @@ import cors from 'cors';
     const app = express()
     app.use(express.json());
     app.use(express.urlencoded({ extended: true })); 
-    app.use(cors());
   
     app.get("/:id", async (req, res) => {
         const slug = await UrlShortenerData.findOne(
