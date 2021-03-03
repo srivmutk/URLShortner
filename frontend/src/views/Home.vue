@@ -20,7 +20,7 @@
 
 <script>
 import axios from "axios"
-//E
+
 export default {
   name: 'Home',
   data (){
@@ -37,7 +37,7 @@ export default {
       this.err = false
     },
     insertUrl: async function() {
-          const res = await axios.post('http://localhost:4000/register_url', { url: this.url })
+          const res = await axios.post(process.env.VUE_APP_API_URL_REGISTER, { url: this.url })
           .then(response => {
             (response.data)
             this.slug = response.data
