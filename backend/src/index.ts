@@ -16,7 +16,7 @@ dotenv.config();
     app.use(express.urlencoded({ extended: true })); 
 
     app.use(function(_req, res, next) {
-        res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+        res.header("Access-Control-Allow-Origin", "https://6nmd.us");
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.header('Access-Control-Allow-Headers', 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type')        
