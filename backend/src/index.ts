@@ -1,5 +1,4 @@
 import "reflect-metadata";
-import * as dotenv from 'dotenv';
 import {createConnection} from "typeorm";
 import UrlShortenerData from "./entity/UrlShortenerData";
 import express from "express";
@@ -7,20 +6,13 @@ import {nanoid} from 'nanoid';
 import {URL} from "url";
 import cors from 'cors';
 
-dotenv.config();
-
 (async () => {
     await createConnection()
 
     const app = express()
     app.use(express.json());
     app.use(express.urlencoded({ extended: true })); 
-    app.use(
-        cors({
-          origin: 'http://localhost:8080',
-          credentials: true
-        })
-      );
+    app.use(cors());
   
     app.get("/:id", async (req, res) => {
         const slug = await UrlShortenerData.findOne(

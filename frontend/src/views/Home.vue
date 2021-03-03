@@ -37,7 +37,7 @@ export default {
       this.err = false
     },
     insertUrl: async function() {
-          const res = await axios.post(process.env.VUE_APP_SERVER_URL_REGISTER, { url: this.url })
+          const res = await axios.post('http://localhost:4000/register_url', { url: this.url })
           .then(response => {
             (response.data)
             this.slug = response.data
@@ -47,8 +47,7 @@ export default {
           .catch(error => {
             this.err = true;
             console.log(error)
-          });
-
+          })
           res.data.data; 
           res.data.headers['Content-Type'];
     }
