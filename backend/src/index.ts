@@ -16,6 +16,7 @@ dotenv.config();
     app.use(express.urlencoded({ extended: true })); 
 
     app.use(function(_req, res, next) {
+        res.setHeader('Content-Type', 'text/plain');
         res.header("Access-Control-Allow-Origin", "*");
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
