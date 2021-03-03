@@ -1,10 +1,10 @@
 {
-    "type": "",
-    "host": "",
-    "port": "",
-    "username": "",
-    "password": "",
-    "database": "",
+    "type": "postgres",
+    "host": "159.203.185.7",
+    "port": "32574",
+    "username": "postgres",
+    "password": "103c618d515317e47b75a1ff6c3755d0",
+    "database": "sysnomid_psql",
     "synchronize": true,
        "logging": false,
        "entities": [
