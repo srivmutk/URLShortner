@@ -4,6 +4,7 @@ import UrlShortenerData from "./entity/UrlShortenerData";
 import express from "express";
 import { nanoid } from 'nanoid';
 import { URL } from "url";
+import "dotenv/config";
 
 (async () => {
     await createConnection();
@@ -14,7 +15,7 @@ import { URL } from "url";
 
     app.use(function(_req, res, next) {
          res.setHeader('Content-Type', 'text/plain');
-         res.header("Access-Control-Allow-Origin", '*');
+         res.header("Access-Control-Allow-Origin", "*");
          res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
          res.header('Access-Control-Allow-Headers', 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type')        
@@ -55,6 +56,6 @@ import { URL } from "url";
         }
     });
 
-    app.listen(4000)
+    app.listen(process.env.PORT || 4000)
     console.log("Running on Port 4000")
 })();
