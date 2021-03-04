@@ -1,23 +1,21 @@
 import "reflect-metadata";
-import {createConnection} from "typeorm";
+import { createConnection } from "typeorm";
 import UrlShortenerData from "./entity/UrlShortenerData";
 import express from "express";
-import {nanoid} from 'nanoid';
-import {URL} from "url";
-import dotenv from 'dotenv'
-
-dotenv.config();
+import { nanoid } from 'nanoid';
+import { URL } from "url";
+import config from "./config"
 
 (async () => {
-    await createConnection()
+    await createConnection();
 
-    const app = express()
+    const app = express();
     app.use(express.json());
     app.use(express.urlencoded({ extended: true })); 
 
     app.use(function(_req, res, next) {
          res.setHeader('Content-Type', 'text/plain');
-         res.header("Access-Control-Allow-Origin", "*");
+         res.header("Access-Control-Allow-Origin", config.CORS_ORIGIN);
          res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
          res.header('Access-Control-Allow-Headers', 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type')        
@@ -58,6 +56,6 @@ dotenv.config();
         }
     });
 
-    app.listen(process.env.PORT || 4000)
+    app.listen(config.PORT)
     console.log("Running on Port 4000")
 })();
