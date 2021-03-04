@@ -57,5 +57,5 @@ import config from "./config"
     });
 
     app.listen(config.PORT)
-    console.log("Running on Port 4000")
+    console.log(`Running on Port ${config.PORT}`)
 })();
