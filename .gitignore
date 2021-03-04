@@ -22,3 +22,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
+# TypeORM main config file
+ormconfig.json
