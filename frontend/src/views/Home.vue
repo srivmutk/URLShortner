@@ -1,4 +1,3 @@
-
 <template>
   <div class="home">
     <h1 class="green name">6nmd.us</h1>
