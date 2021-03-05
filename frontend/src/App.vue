@@ -7,6 +7,12 @@
   </div>
 </template>
 
+<script>
+export default {
+    title: "6nmd.us - Sysnomid Url Shortener"
+}
+</script>
+
 <style>
 @import url('https://rsms.me/inter/inter.css');
 @import url('https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css');
