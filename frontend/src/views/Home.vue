@@ -24,7 +24,7 @@ export default {
   name: 'Home',
   data (){
     return {
-      url: "https://",
+      url: "",
       slug: "",
       displaySlug: false,
       err: false
