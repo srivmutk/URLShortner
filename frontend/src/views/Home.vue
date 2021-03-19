@@ -42,10 +42,12 @@ export default {
             this.slug = response.data
             console.log(this.slug)
             this.displaySlug = true
+            this.url = ""
           })
           .catch(error => {
             this.err = true;
             console.log(error)
+            this.url = ""
           })
           res.data.data; 
           res.data.headers['Content-Type'];
