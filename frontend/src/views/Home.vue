@@ -32,24 +32,34 @@ export default {
     }
   },
   methods: {
+    // Auto Reset Errors on Submit
     reset: function(){
       this.err = false
     },
+
+    // Create a URL on Submit
     insertUrl: async function() {
           const res = await axios.post(`${process.env.VUE_APP_API_URL}/url-create`, { url: this.url })
           .then(response => {
             (response.data)
+            // On Success, Display Slug 
             this.slug = response.data
             console.log(this.slug)
             this.displaySlugData = true
+            // Reset Form Fields
             this.url = ""
           })
           .catch(error => {
+            // On Error
             this.err = true;
+            // Reset Form Fields
             this.url = ""
+            // If error is on Server End, send server response body
             if (error.response){
                 this.errMessage = error.response.data
-            } else if (error.request){
+            } 
+            // If error is on Request End
+            else if (error.request){
               if (error.request.response != ""){
                   this.errMessage = JSON.parse(JSON.stringify(error.request.response))
               } else {

@@ -18,7 +18,7 @@ const routes = [
     component: Url
   },
   {
-    path: '/pages/err',
+    path: '/pages/not-found',
     name: "404",
     component: err
   },

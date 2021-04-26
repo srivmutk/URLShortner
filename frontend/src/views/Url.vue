@@ -19,19 +19,23 @@ export default {
     const data = await axios.get(`${process.env.VUE_APP_API_URL}/${this.id}`)
         .then(response => {
           (response.data)
-          function addhttp(url) {
+
+          // If URL has no http prefix, add it
+          const addhttp = (url) => {
              // eslint-disable-next-line  
               if (!(/^(?:f|ht)tps?\:\/\//.test(url))) {
                   url = "http://" + url;
               }
               return url;
           }
+
+          // Redirect to URL with http prefix
           const urlData = addhttp(response.data)
           window.location.href = urlData
         })
         .catch(error => {
             console.log(error)
-            this.$router.push('/pages/err')
+            this.$router.push('/pages/not-found')
         });
       console.log(data)
   }

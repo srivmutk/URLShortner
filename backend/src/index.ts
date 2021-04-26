@@ -5,13 +5,16 @@ import express from "express";
 import rateLimit from "express-rate-limit";
 import { nanoid } from 'nanoid';
 
+// Lambda function for ExpressJS API
 (async () => {
+    // Await DB Connection
     await createConnection();
 
     const app = express();
     app.use(express.json());
     app.use(express.urlencoded({ extended: true })); 
 
+    // CORS
     app.use(function(_req, res, next) {
          res.setHeader('Content-Type', 'text/plain');
          res.header("Access-Control-Allow-Origin", "*");
@@ -21,6 +24,7 @@ import { nanoid } from 'nanoid';
          next();
     });
 
+    // Rate Limiting
     const limiter = rateLimit({
         windowMs: 30 * 1000, // 30 Reqs per 30 second Second
         max: 30 
@@ -32,6 +36,7 @@ import { nanoid } from 'nanoid';
         return res.send("6nmd.us URL SHORTENER API")
     });
 
+    // Get Valid Slug 
     app.get("/:slug", async (req, res) => {
         const slug = await UrlShortenerData.findOne(
             { where:
@@ -47,19 +52,24 @@ import { nanoid } from 'nanoid';
         return true;
     });
 
+    // Create a URL
     app.post("/url-create", async (req, res) => {
         let body = req.body
         let id = nanoid(5)
         try {
-            let urlRegex = /^(?:http(s)?:\/\/|(s)?ftp?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
+            // Regex based URL validation
+            const urlRegex = /^(?:http(s)?:\/\/|(s)?ftp?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
             const urlValidator = body.url.match(urlRegex)
-            if (urlValidator == null){
+            // If Invalid URL throw an Error
+            if (urlValidator === null){
                 throw new Error("Invalid URL")
             }
         } catch {
+            // Send 400 on Invalid URL
             return res.status(400).send("Invalid URL")
         }
         try {
+            // Insert into SQL, send 500 on error
             await UrlShortenerData.insert({
                 urlID: id,
                 redirectURL: body.url
