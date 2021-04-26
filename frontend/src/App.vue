@@ -3,21 +3,28 @@
     <div id="nav">
       <router-view/>
       <title>6mnd.us - Url Shortener</title>
+      <footer>
+        <p class="footer"> Created by Sysnomid, <strong><a href="https://sysnomid.com"> https://sysnomid.com </a></strong></p>
+      </footer>
     </div>
   </div>
 </template>
 
 <style>
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css');
-html { 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4%;
-  overflow-x: hidden;
+@import url('https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css');
+
+html {  
   color: #c5c5c5; 
   background-color: #282c35; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #262626;
+}
+
+body {
   font-family: 'Inter', sans-serif;
 }
 a {
@@ -28,7 +35,11 @@ a {
 a:hover {
     text-decoration: none;
 }
-@supports (font-variation-settings: normal) {
-  html { font-family: 'Inter var', sans-serif; }
+
+.footer {
+  margin-top: 5em;
+  margin-left: 0.75em;
+  font-size: 1.075em;
 }
+
 </style>

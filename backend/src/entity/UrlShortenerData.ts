@@ -3,13 +3,11 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 @Entity()
 export default class UrlShortenerData extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+    id: Number;
 
     @Column()
-    UrlId: string;
+    urlID: String;
 
     @Column()
-    RedirectURL: string;
+    redirectURL: String;
 }
-
-
