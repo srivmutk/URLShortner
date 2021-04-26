@@ -12,7 +12,7 @@
       <a :href="slug"> https://6nmd.us/{{slug}}/ </a>
     </div>
     <div v-if=err class="popup error">
-      {{ errMessage }}
+      {{ errMessage }} 
     </div>
   </div>
 </template>
@@ -137,6 +137,7 @@ export default {
     border-radius: 10px;
     margin-left: 0.5rem;
     margin-bottom: 3rem;
+    word-break: break-all;
   }
 
   .error {
