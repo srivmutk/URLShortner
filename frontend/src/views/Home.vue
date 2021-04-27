@@ -81,12 +81,14 @@ export default {
   .home {
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 25%;
+    margin-top: 10rem;
     margin-bottom: 55%;
   }
 
   .header {
-    font-size: 5em;
+    display: flex;
+    justify-content: center;
+    font-size: 4.5rem;
     color: rgb(34, 211, 34);
     margin-left: 0.1rem;
   }
