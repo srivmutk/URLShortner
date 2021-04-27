@@ -1,6 +1,12 @@
+<div align="center">
+
+<img src="https://6nmd.us/logo.png" width="350" height="200">
+
 ## 6nmd.us
 
 A simple URL shortener in Typescript and VueJS
+
+</div>
 
 To use:
 
