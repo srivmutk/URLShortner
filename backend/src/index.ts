@@ -69,10 +69,17 @@ import { nanoid } from 'nanoid';
             return res.status(400).send("Invalid URL")
         }
         try {
+             // If URL has no http prefix, add it
+            const addhttp = (url: string) => { 
+                if (!(/^(?:f|ht)tps?\:\/\//.test(url))) {
+                    url = "http://" + url;
+                }
+                return url;
+            }
             // Insert into SQL, send 500 on error
             await UrlShortenerData.insert({
                 urlID: id,
-                redirectURL: body.url
+                redirectURL: addhttp(body.url)
             })
             return res.send(id)
         } catch {

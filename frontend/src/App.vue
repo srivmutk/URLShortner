@@ -4,7 +4,7 @@
       <router-view/>
       <title>6mnd.us - Url Shortener</title>
       <footer>
-        <p class="footer"> <a href="https://github.com/Sysnomid/6nmd.us">Source Code</a> <br /> Created by Sysnomid, <strong><a href="https://sysnomid.com"> https://sysnomid.com </a></strong></p>
+        <p class="footer"> <a href="https://github.com/Sysnomid/6nmd.us">Source Code</a> <br /> Created by Sysnomid <strong><a href="https://sysnomid.com"> https://sysnomid.com </a></strong></p>
       </footer>
     </div>
   </div>
@@ -22,7 +22,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
   height: 100vh;
   background-color: #262626;
 }
@@ -43,6 +43,7 @@ a:hover {
 .footer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 5em;
   margin-left: 0.75em;
   font-size: 1.25em;
