@@ -23,7 +23,7 @@ API BASE URL = https://api.6nmd.us
 
 #### `POST /url-create`
 
-Create a URL. Supported Schemes are http(s):// and (s)ftp://
+Create a URL. Supported Schemes are http(s)://, (s)ftp://, and ipfs://
 
 Returns the slug of a URL which can be retrieved at `/:slug`
 
