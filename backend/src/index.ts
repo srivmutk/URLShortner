@@ -58,7 +58,7 @@ import { nanoid } from 'nanoid';
         let id = nanoid(5)
         try {
             // Regex based URL validation
-            const urlRegex = /^(?:http(s)?:\/\/|(s)?ftp?:\/\/|ipfs?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
+            const urlRegex = /^(?:http(s)?:\/\/|(s)?ftp?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
             const urlValidator = body.url.match(urlRegex)
             // If Invalid URL throw an Error
             if (urlValidator === null){
