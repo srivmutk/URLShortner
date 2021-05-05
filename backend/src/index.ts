@@ -5,9 +5,7 @@ import express from "express";
 import rateLimit from "express-rate-limit";
 import { nanoid } from 'nanoid';
 
-// Lambda function for ExpressJS API
 (async () => {
-    // Await DB Connection
     await createConnection();
 
     const app = express();
@@ -26,7 +24,7 @@ import { nanoid } from 'nanoid';
 
     // Rate Limiting
     const limiter = rateLimit({
-        windowMs: 30 * 1000, // 30 Reqs per 30 second Second
+        windowMs: 30 * 1000, // 30 Reqs per 30 seconds 
         max: 30 
     });
 
@@ -58,14 +56,21 @@ import { nanoid } from 'nanoid';
         let id = nanoid(5)
         try {
             // Regex based URL validation
+            // Accepted URLs - 
+                // https://example.com
+                // example.com
+                // www.example.com
+                // 255.255.255.0
+                // http://255.255.255.0
+            // Invalid URLs
+                // http://localhost
             const urlRegex = /^(?:http(s)?:\/\/|(s)?ftp?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
             const urlValidator = body.url.match(urlRegex)
-            // If Invalid URL throw an Error
+            // If Regex returns no matches throw an error
             if (urlValidator === null){
                 throw new Error("Invalid URL")
             }
         } catch {
-            // Send 400 on Invalid URL
             return res.status(400).send("Invalid URL")
         }
         try {

@@ -19,10 +19,12 @@ export default {
     const data = await axios.get(`${process.env.VUE_APP_API_URL}/${this.id}`)
         .then(response => {
           (response.data)
+          // Redirect to URL data if found
           window.location.href = response.data
         })
         .catch(error => {
             console.log(error)
+            // 404 if not
             this.$router.push('/pages/not-found')
         });
       console.log(data)

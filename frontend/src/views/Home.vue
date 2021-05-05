@@ -2,7 +2,7 @@
   <div class="main">
     <header class="header">
     <div class="heading"><strong>6nmd.us</strong></div>
-    <p class="heading__small">A simple url shortener.</p>
+    <p class="heading__small">Url Shortener</p>
     </header>
     <form @submit.prevent="insertUrl" class="form">
       <input class="input" spellcheck="false" v-model="url" @change="reset" placeholder="https://sysnomid.com" required>
@@ -88,15 +88,14 @@ export default {
   .heading {
     display: flex;
     justify-content: center;
-    font-size: 5rem;
+    font-size: 5em;
     color: rgb(34, 211, 34);
   }
   .heading__small {
     display: flex;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     color: rgb(147, 148, 167);
-    margin-left: 0.5em;
   }
   .header {
     padding-bottom: 3em;
