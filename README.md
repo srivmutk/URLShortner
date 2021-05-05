@@ -17,7 +17,7 @@ To use:
 
 Dev scripts included in each package.JSON
 
-### API Docs
+### API 
 
 API BASE URL = https://api.6nmd.us
 
