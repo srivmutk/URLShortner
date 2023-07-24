@@ -2,8 +2,6 @@
 
 <img src="https://6nmd.us/logo.png" width="350" height="200">
 
-## 6nmd.us
-
 A simple URL shortener in Typescript and VueJS
 
 </div>
@@ -18,8 +16,6 @@ To use:
 Dev scripts included in each package.JSON
 
 ### API 
-
-API BASE URL = https://api.6nmd.us
 
 #### `POST /url-create`
 
